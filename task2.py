@@ -49,19 +49,18 @@ for i in range (1,31):
     else:
       if len(GBP_list_1_31_jan)>0:
         GBP_list_1_31_jan.append(GBP_list_1_31_jan[len(GBP_list_1_31_jan)-1])
-print(GBP_list_1_31_jan)
 
 
-plt.plot(INR_list_1_31_jan,label="INR")
-plt.plot(GBP_list_1_31_jan,label="BGP")
-# naming the x axis 
-plt.xlabel('1 Jan 2019 to 31 Jan 2019') 
-# naming the y axis 
-plt.ylabel('INR exchange rate against EUR ') 
-  
-# giving a title to my graph 
-plt.title('My first graph!') 
-  
-# function to show the plot 
-plt.legend()#to Discibe line
+
+fig, (ax1, ax2) = plt.subplots(2, 1)
+fig.suptitle('A tale of 2 subplots')
+
+#subgraph for INR 
+ax1.plot(INR_list_1_31_jan, 'o-')
+ax1.set_ylabel('INR rate against EUR')
+#Sub Graph for BGP
+ax2.plot(GBP_list_1_31_jan, '.-')
+ax2.set_xlabel('1 Jan 2019 to 31 Jan 2019')
+ax2.set_ylabel('GBP rate against EUR')
+# function to show the plot
 plt.show()
